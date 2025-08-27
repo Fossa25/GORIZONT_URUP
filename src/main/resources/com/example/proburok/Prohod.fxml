@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1057.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proburok.ProhodCOD">
+    <children>
+      <ImageView fitHeight="759.0" fitWidth="861.0" layoutX="199.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/Fon.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="101.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/IMG_4772.JPG" />
+         </image>
+      </ImageView>
+          <TextField fx:id="nameProhod" layoutX="489.0" layoutY="59.0" prefHeight="43.0" prefWidth="511.0" promptText="НАЗВАНИЕ ГОРНОЙ ВЫРАБОТКИ">
+              <font>
+                  <Font size="14.0" />
+              </font>
+          </TextField>
+      <DatePicker fx:id="data" editable="false" layoutX="249.0" layoutY="60.0" prefHeight="43.0" prefWidth="177.0" promptText="ДАТА" />
+          <TextField fx:id="nomer" layoutX="489.0" layoutY="188.0" prefHeight="43.0" prefWidth="178.0" promptText="№ ПАСПОРТА">
+              <font>
+                  <Font size="14.0" />
+              </font>
+          </TextField>
+          <Button fx:id="singUpButtun" layoutX="839.0" layoutY="188.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="161.0" style="-fx-background-color: #aa9455; -fx-background-radius: 20px;" text="Сохранить данные" textFill="WHITE">
+              <font>
+                  <Font name="Verdana" size="14.0" />
+              </font>
+          </Button>
+
+      <Accordion layoutX="479.0" layoutY="436.0" />
+      <TextField fx:id="gorizont" layoutX="250.0" layoutY="125.0" prefHeight="43.0" prefWidth="177.0" promptText="ГОРИЗОНТ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="72.0" fitWidth="202.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/ProhodA.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="72.0" fitWidth="202.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/GeologN.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="72.0" fitWidth="202.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/GeomexN.jpg" />
+         </image>
+      </ImageView>
+      <TabPane fx:id="meny" layoutX="249.0" layoutY="278.0" prefHeight="290.0" prefWidth="752.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="pervi" text="Горизонтальные, наклонные и вертикальные горные выработки">
+            <content>
+              <AnchorPane fx:id="dop" minHeight="0.0" minWidth="0.0" prefHeight="237.0" prefWidth="758.0">
+                     <children>
+                        <TableView fx:id="Tablshen" layoutX="3.0" layoutY="-24.0" prefHeight="233.0" prefWidth="746.0">
+                          <columns>
+                            <TableColumn fx:id="stolb1" prefWidth="591.0" />
+                            <TableColumn fx:id="stolb2" minWidth="0.0" prefWidth="152.0" />
+
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="vtoroi" text="Сопряжения">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="768.0">
+                     <children>
+                        <TableView fx:id="Tablshen1" layoutX="3.0" layoutY="-24.0" prefHeight="233.0" prefWidth="746.0">
+                           <columns>
+                              <TableColumn fx:id="stolb11" prefWidth="587.0" text="Назначение выработки" />
+                              <TableColumn fx:id="stolb21" minWidth="0.0" prefWidth="164.0" text="Площадь сечения, м²" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <TextField fx:id="sehen" layoutX="702.0" layoutY="188.0" prefHeight="43.0" prefWidth="113.0" promptText="СЕЧЕНИЕ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="privizka" layoutX="489.0" layoutY="124.0" prefHeight="43.0" prefWidth="511.0" promptText="ПРИВЯЗКА">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="825.0" layoutY="278.0" prefHeight="43.0" prefWidth="128.0" text="Площадь сечения, м²" />
+      <ImageView fx:id="dokumGeolog" fitHeight="61.0" fitWidth="58.0" layoutX="542.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/iconGeolog.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dokumGeolog11" fitHeight="61.0" fitWidth="58.0" layoutX="642.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/albom.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pethat" fitHeight="61.0" fitWidth="58.0" layoutX="442.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/pehat.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tabl" fitHeight="61.0" fitWidth="58.0" layoutX="742.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/BDA.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="instr" fitHeight="61.0" fitWidth="58.0" layoutX="23.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/instr.jpg" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="ushatok" editable="true" layoutX="250.0" layoutY="188.0" prefHeight="43.0" prefWidth="178.0" promptText="№ УЧАСТКА" />
+    </children>
+</AnchorPane>

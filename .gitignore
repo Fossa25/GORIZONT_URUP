@@ -1,0 +1,34 @@
+# Скомпилированные классы
+*.class
+*.war
+*.ear
+*.jar
+
+# Файлы сборки Maven
+target/
+build/
+dependency-reduced-pom.xml
+
+# Файлы логов
+*.log
+
+# Файлы операционных систем
+.DS_Store
+Thumbs.db
+
+# Файлы IDE (IntelliJ)
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Служебные файлы
+release/
+custom-jre/
+lib/
+output.docx
+
+# Qodana
+qodana.yaml
+.qodana/

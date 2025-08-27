@@ -1,0 +1,69 @@
+jpackage --name ProbUrok --input target/ --main-jar ProbUrok-1.0-SNAPSHOT.jar --main-class com.example.proburok.HelloApplication --runtime-image "E:\javafx-sdk-23.0.2\runtime-image" --dest release --type app-image --win-console
+        PS E:\ProbUrok> cd target
+        PS E:\ProbUrok\target> java --module-path "E:/javafx-sdk-23.0.2/lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics -jar ProbUrok-1.0-SNAPSHOT.jar
+jpackage --name ProbUrok --input target/ --main-jar original-ProbUrok-1.0-SNAPSHOT.jar --main-class com.example.proburok.HelloApplication --runtime-image "E:\javafx-sdk-23.0.2\runtime-image" --dest release --type app-image --win-console
+//    private void replacePlaceholders(XWPFDocument doc, String[] values) {
+//        PLACEHOLDER_MAP.forEach((placeholderBase, fieldName) -> { //переберет все записи словаря строку и ключ  "${nomer}", "nomer",
+//            System.out.println("Processing: " + placeholderBase);
+//            for (XWPFParagraph p : doc.getParagraphs()) { //проходит по всем параграфам документа
+//                for (int i = 1; i <= 6; i++){
+//                    String placeholder = placeholderBase + i;
+//                    if (p.getText().contains(placeholder)) { // проверяет совпадение параграфа со старкой словаря
+//                        System.out.println("[ТЕКСТ] Замена " + placeholder + " → " + getValueByFieldName(fieldName, values));
+//                        replaceTextInParagraph(p, placeholder, getValueByFieldName(fieldName, values)); //заменяет текст в параграфе использя метод реплейсТекс значения для замены получает через гед велю
+//                }
+//            }for (int i = 7; i <= 10; i++){
+//                    String placeholder = placeholderBase + i;
+//                    if (p.getText().contains(placeholder)) { // проверяет совпадение параграфа со старкой словаря
+//                        replaceImageInParagraph(p,doc, placeholder, getValueImage(fieldName, values,i-7));
+//                        String imagePath = getValueImage(fieldName, values, i - 7);
+//                        System.out.println("[ИЗОБРАЖЕНИЕ] Замена " + placeholder + " → " + imagePath);//заменяет текст в параграфе использя метод реплейсТекс значения для замены получает через гед велю
+//                    }
+//                }
+//            }
+//        });
+//    }
+
+ private void replaceImageInParagraph(XWPFParagraph p,XWPFDocument doc, String placeholder, String replacement) {
+        try {
+        p.getRuns().forEach(r -> r.setText("", 0)); //удаляем сущесвующий из всех ранов и заменяем полность
+        if(!replacement.isEmpty()){
+
+            FileInputStream imageStream = new FileInputStream(replacement);
+        int pictureType = getImageType(replacement);
+
+            File imageFile = new File(replacement);
+            if (!imageFile.isFile()) {
+                System.err.println("Неверный путь к изображению: " + replacement);
+                return;
+            }
+
+        if (pictureType != -1) { // если тип правельный то норм
+            XWPFRun newRun = p.createRun();
+            newRun.addPicture(imageStream, pictureType, replacement, Units.toEMU(200), Units.toEMU(200));
+            imageStream.close();
+        }
+        }
+    } catch (IOException | InvalidFormatException e) {
+        e.printStackTrace();
+    }
+    }
+
+
+    private static int getImageType(String imagePath) {
+        if (imagePath.toLowerCase().endsWith(".png")) {
+            return XWPFDocument.PICTURE_TYPE_PNG;
+        } else if (imagePath.toLowerCase().endsWith(".jpeg") || imagePath.toLowerCase().endsWith(".jpg")) {
+            return XWPFDocument.PICTURE_TYPE_JPEG;
+        } else if (imagePath.toLowerCase().endsWith(".gif")) {
+            return XWPFDocument.PICTURE_TYPE_GIF;
+        } else if (imagePath.toLowerCase().endsWith(".bmp")) {
+            return XWPFDocument.PICTURE_TYPE_BMP;
+        } else if (imagePath.toLowerCase().endsWith(".tiff") || imagePath.toLowerCase().endsWith(".tif")) {
+            return XWPFDocument.PICTURE_TYPE_TIFF;
+        }
+        return -1;
+    }
+
+     jpackage --input target/  --name TestApp --main-jar ProbUrok-1.0-SNAPSHOT.jar --main-class com.example.proburok.HelloApplication --type exe
+
