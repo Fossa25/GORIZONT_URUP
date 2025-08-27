@@ -40,7 +40,7 @@ public class HomeController {
         dataCtolb.setCellValueFactory(new PropertyValueFactory<>("DATA"));
         gorizontCtolb.setCellValueFactory(new PropertyValueFactory<>("GORIZONT"));
         sehenCtolb.setCellValueFactory(new PropertyValueFactory<>("SEHEN"));
-        nameCtolb.setCellValueFactory(new PropertyValueFactory<>("NAME_BD"));
+        nameCtolb.setCellValueFactory(new PropertyValueFactory<>("NAME"));
         kftegoriiCtolb.setCellValueFactory(new PropertyValueFactory<>("KATEGORII"));
         opisanieCtolb.setCellValueFactory(new PropertyValueFactory<>("OPISANIE"));
         faktorCtolb.setCellValueFactory(new PropertyValueFactory<>("UGOL"));
